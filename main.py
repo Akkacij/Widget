@@ -11,7 +11,7 @@ from database.db_currency import DataBaseCurrency
 
 
 if __name__ == '__main__':
-    wi = Widget(pos=3)
+    wi = Widget(pos=2)
     # wi.add_block(BlockTime(wi), True)
     wi.add_block(BlockTextCurrencyUSD(wi), True)
     # wi.add_block(BlockGraph(wi), True)
