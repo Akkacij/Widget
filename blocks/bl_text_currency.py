@@ -7,6 +7,7 @@ from datetime import datetime, timedelta
 class BlockTextCurrency(BlockText):
     def __init__(self, win, parser, database, name="BlockTextCurrency"):
         super().__init__(win=win, name=name)
+        self.version = "Akkacij 1.0 12.01.2022"
         
         self.parser = parser
         self.database = database

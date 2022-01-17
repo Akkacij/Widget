@@ -18,6 +18,7 @@ class BlockTimeTo(Block150x70):
                  d_minute=0,
                  d_second=0):
         super().__init__(win, name=name)
+        self.version = "Akkacij 1.0 12.01.2022"
 
         self.finish = False  # Отслеживаемая дата уже прошла?
         self.finish_alarm = 0  # кол-во отработаных тактов после завершения таймера

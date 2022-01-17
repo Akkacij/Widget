@@ -15,6 +15,7 @@ class Block:
                  height=70,
                  name='Block',
                  canvas_bg=None):
+        self.version = "Akkacij 1.0 12.01.2022"
         self.x = x
         self.y = y
         self.width = width

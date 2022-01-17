@@ -25,7 +25,6 @@ widget_inf = {'widget_version': '1.0',
 class Widget(Tk):
     def __init__(self, pos=2):
         super().__init__()
-
         self.version = "Akkacij 1.0 11.01.2022"
         
         self.width = 303

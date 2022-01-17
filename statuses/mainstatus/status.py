@@ -3,6 +3,7 @@ from tkinter import PhotoImage, Canvas
 
 class Status:
     def __init__(self, canvas, name='Status', x=0, y=0):
+        self.version = "Akkacij 1.0 12.01.2022"
         self.canvas = canvas
         self.name = name
         self.x = x

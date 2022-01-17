@@ -3,6 +3,7 @@ from tkinter import Button, PhotoImage
 
 class Keypad:
     def __init__(self, widget):
+        self.version = "Akkacij 1.0 12.01.2022"
         self.widget = widget
         self.button_size = 30
         self.x = 0
