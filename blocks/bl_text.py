@@ -4,6 +4,7 @@ from blocks.mainblocks.block150x70 import Block150x70
 class BlockText(Block150x70):
     def __init__(self, win, name="BlockText", text1="----", text2="----", text3="----"):
         super().__init__(win=win, name=name)
+        self.version = "Akkacij 1.0 12.01.2022"
         x_s = 42
         y_s = 5.5
         self.text_1 = text1

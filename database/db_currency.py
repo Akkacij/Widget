@@ -5,6 +5,7 @@ from datetime import datetime
 class DataBaseCurrency(DataBase):
     def __init__(self, name="DataBaseCurrency"):
         super().__init__(name=name)
+        self.version = "Akkacij 1.0 12.01.2022"
         self.value = 0
         
     def write_log(self, date, value):

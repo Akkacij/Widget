@@ -3,6 +3,7 @@ import requests
 
 class Parser:
 	def __init__(self, currency_name, url):
+		self.version = "Akkacij 1.0 12.01.2022"
 		self.url = url
 		self.name = currency_name
 		

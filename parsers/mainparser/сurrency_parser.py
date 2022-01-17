@@ -5,6 +5,7 @@ from bs4 import BeautifulSoup
 class CurrencyParser(Parser):
     def __init__(self, url, currency_name="None"):
         super().__init__("{}.CurrencyParser".format(currency_name), url)
+        self.version = "Akkacij 1.0 12.01.2022"
         
         self.version = "Akkacij 1.0 11.01.2022"
         

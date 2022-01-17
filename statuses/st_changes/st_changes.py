@@ -5,6 +5,7 @@ from tkinter import PhotoImage
 class StatusChanges(Status):
     def __init__(self, canvas, name='StatusChanges', x=0, y=0):
         super().__init__(canvas=canvas, name=name, x=x, y=y)
+        self.version = "Akkacij 1.0 12.01.2022"
         
         #  No changes
         self.images_of_state_dict['default'] = PhotoImage(file="statuses/st_changes/images/status_changes.png")
