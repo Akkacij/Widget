@@ -48,7 +48,10 @@ class Widget(Tk):
         self.title("MyWidget")
     
         # window["bg"] = "#2bb620"
-        self.overrideredirect(True)
+        # self.overrideredirect(True)
+        self.resizable(width=False, height=False)
+        # self.attributes("-topmost", True)
+        # self.attributes("-topmost", False)
         # window.wm_attributes("-alpha", 0.95)
         # update_widget_inf(window)
         # window.overrideredirect(False)
@@ -91,7 +94,5 @@ class Widget(Tk):
         if len(self.block_list) > 0:
             for bl in self.block_list:
                 bl.update_block()
-        # print("ALARM")
         self.after(500, self.alarm)
-
         
