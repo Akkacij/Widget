@@ -1,4 +1,4 @@
-# Widget Akkacij 2.0
+# Wi Akkacij 2.0
 
 Позволяет мониторить определеные даты, курсы валют.
 
@@ -12,3 +12,12 @@
         - Database Akkacij 1.0 12.01.2022
         - Parser Akkacij 1.0 12.01.2022
         - Status Akkacij 1.0 12.01.2022
+
+# Сокращения файлов:
+    - bl - block
+    - pn - panel
+    - par - parser
+    - db - database
+    - st - status
+    - al - alarm
+    - conn - connector
