@@ -6,7 +6,7 @@ class PanelText(Panel150x70):
         super().__init__(win=win, name=name)
         self.pn_version = "Akkacij 1.0 12.01.2022"
         x_s = 42
-        y_s = 5.5
+        y_s = 20
         self.pn_text_1 = text1
         self.pn_text_field_1 = self.pn_canvas.create_text(x_s + 35,
                                                           y_s,

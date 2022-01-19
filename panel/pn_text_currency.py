@@ -20,19 +20,19 @@ class PanelTextCurrency(PanelText):
                                                y=self.pn_status_fields_positions[1]['y'])
         
     def pn_update_canvas(self):
-        date_log = self.pn_database.read_date_log((datetime.now() - timedelta(hours=2)).date())
-        date_log_last = self.pn_database.read_date_log(datetime.now().date() - timedelta(days=1))
+        date_log = self.pn_database.db_read_date_log((datetime.now() - timedelta(hours=2)).date())
+        date_log_last = self.pn_database.db_read_date_log((datetime.now() - timedelta(days=1)).date())
         if date_log is False:
             self.pn_status_changes.update_status('changes_off')  #
             self.pn_status_changes.difference = 0
             self.pn_text_1 = self.pn_status_changes.difference  # Вывод значения
             
             self.pn_status_parsing.update_status('parsing_on')  #  Изменить состояние статуса на "Парсер работает"
-            parser_log = self.pn_parser.return_log() #  Парсинг и возврат значения из парсера
+            parser_log = self.pn_parser.par_return_log() #  Парсинг и возврат значения из парсера
             if parser_log is not False:
                 parser_value = parser_log['VFR']
-                self.pn_database.write_log(parser_log['DFR'], parser_value)  #  Запись запарсеного значения в базу
-                self.pn_text_2 = "1 {0}: {1} BYR".format(self.pn_parser.name.split('.')[0], parser_value)  #  Вывод значения
+                self.pn_database.db_write_log(parser_log['DFR'], parser_value)  #  Запись запарсеного значения в базу
+                self.pn_text_2 = "1 {0}: {1} BYR".format(self.pn_parser.par_name.split('.')[0], parser_value)  #  Вывод значения
             else:
                 self.pn_status_parsing.update_status('parsing_off')  # Изменить состояние статуса на "Парсер работает"
         else:
@@ -52,8 +52,8 @@ class PanelTextCurrency(PanelText):
                     self.pn_status_changes.update_status('default')
                     self.pn_text_1 = str(self.pn_status_changes.difference)[0:7]
                 
-            self.pn_text_2 = "1 {0}: {1} BYR".format(self.pn_parser.name.split('.')[0],
+            self.pn_text_2 = "1 {0}: {1} BYR".format(self.pn_parser.par_name.split('.')[0],
                                                   date_log['value'])  # Вывод значения
-            self.status_parsing.update_status('default')  # Изменить состояние статуса на "Парсер отработал"
+            self.pn_status_parsing.update_status('default')  # Изменить состояние статуса на "Парсер отработал"
         super(PanelTextCurrency, self).pn_update_canvas()  #  Обновить санвас
         

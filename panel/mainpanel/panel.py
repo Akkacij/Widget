@@ -68,8 +68,8 @@ class Panel(Block):
     # -------------- Init Status Fields Positions ---------------------------#
     def pn_init_status_fields_positions(self, number_fields):
         size = 12
-        cx = 12
-        cy = 6.4 - 12
+        cx = 8 #  12
+        cy = -4 # 6.4 - 12
         for field in range(1, number_fields + 1):
             if field <= floor(number_fields / 2):
                 self.pn_status_fields_positions.append({"x": cx, "y": cy + (size * field)})

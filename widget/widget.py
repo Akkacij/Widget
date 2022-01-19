@@ -29,17 +29,18 @@ class Widget(Tk):
             self.wi_y = floor((self.winfo_screenheight()/2) - (self.wi_height/2))
 
         self.title("MyWidget")
-    
-        # window["bg"] = "#2bb620"
-        self["bg"] = "white"
+
+        # self["bg"] = "white"
+        self.minsize(self.wi_width, self.wi_height)
         # self.overrideredirect(True)
-        self.resizable(width=False, height=False)
+        # self.resizable(width=False, height=False)
+
         # self.attributes("-topmost", True)
         # self.attributes("-topmost", False)
         # window.wm_attributes("-alpha", 0.95)
         # update_widget_inf(window)
         # window.overrideredirect(False)
-        # window.state('iconic')
+        # self.state('iconic')
         self.geometry("{0}x{1}+{2}+{3}".format(self.wi_width,
                                                self.wi_height,
                                                self.wi_x,
@@ -52,7 +53,19 @@ class Widget(Tk):
                          {'x': 1 + blocks_width, 'y': 1 + block_height, 'busy': False}]
         
         self.wi_block_list = []
-        
+
+        self.wi_canvas = Canvas(self, width=self.wi_width+5, height=self.wi_height+5)
+        self.wi_canvas.create_rectangle(0, 0, self.wi_width + 5, self.wi_height + 5,
+                                        fill="gray",
+                                        outline="black",
+                                        width=1)
+        self.wi_canvas.create_rectangle(0, 0, self.wi_width+1, self.wi_height+1,
+                                        fill="#d9d9d9",
+                                        outline="black",
+                                        width=1)
+        # self.wi_canvas.pack()
+        self.wi_canvas.place(x=0, y=0)
+
         self.wi_keypad = Keypad(self)
     
     def wi_add_panel(self, panel, in_widget=False):
@@ -79,4 +92,10 @@ class Widget(Tk):
             for bl in self.wi_block_list:
                 bl.pn_update_block()
         self.after(500, self.wi_alarm)
-        
+
+    def wi_exchange_size_of_window(self):
+        if self.winfo_width() == self.wi_width and self.winfo_height() == self.wi_height:
+            self.attributes('-zoomed', True)
+        else:
+            self.attributes('-zoomed', False)
+        print("Widget: width=", self.winfo_width(), " height= ", self.winfo_height())

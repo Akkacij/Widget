@@ -1,27 +1,31 @@
+from panel.ownpanel.pn_text_currency_USD import PanelTextCurrencyUSD
+from panel.pn_text import PanelText
+from panel.pn_time_to import PanelTimeTo
 from widget.widget import Widget
 from panel.mainpanel.panel import Panel
 
 if __name__ == '__main__':
     wi = Widget(pos=5)
-    wi.wi_add_panel(Panel(wi), True)
-    wi.wi_add_panel(Panel(wi), True)
-    wi.wi_add_panel(Panel(wi), True)
-    wi.wi_add_panel(Panel(wi), True)
-    # wi.add_block(BlockTime(wi), True)
-    # wi.add_block(BlockTextCurrencyUSD(wi), True)
-    # wi.add_block(BlockGraph(wi), True)
-    # wi.add_block(BlockTimeTo(win=wi,
-    #                          name="ЗП",
-    #                          finish_message=[],
-    #                          message=[],
-    #                          cycle=True,
-    #                          autonext=True,
-    #                          d_month=1,
-    #                          day=13,
-    #                          hour=12,
-    #                          minute=0,
-    #                          second=0
-    #                         ), True)
+    # wi.wi_add_panel(Panel(wi), True)
+    # wi.wi_add_panel(Panel(wi), True)
+    # wi.wi_add_panel(Panel(wi), True)
+    # wi.wi_add_panel(Panel(wi), True)
+
+    wi.wi_add_panel(PanelTextCurrencyUSD(wi), True)
+    wi.wi_add_panel(PanelText(wi), True)
+    wi.wi_add_panel(PanelTimeTo(win=wi,
+                                name="ЗП",
+                                finish_message=[],
+                                message=[],
+                                cycle=True,
+                                autonext=True,
+                                d_month=1,
+                                day=13,
+                                hour=12,
+                                minute=0,
+                                second=0
+                                ), True)
+
     # wi.add_block(BlockTimeTo(win=wi,
     #                          name="Подъем",
     #                          finish_message=["ПОДЪЕМ!"],
