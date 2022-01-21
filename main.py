@@ -1,33 +1,49 @@
-from datetime import datetime, timedelta
-import random
+from panel.ownpanel.pn_text_currency_USD import PanelTextCurrencyUSD
+from panel.pn_text import PanelText
+from panel.pn_time_to import PanelTimeTo
+from widget.widget import Widget
+from panel.mainpanel.panel import Panel
 
-from widget import Widget
-
-from blocks.bl_time import BlockTime
-from blocks.bl_time_to import BlockTimeTo
-from blocks.ownblocks.bl_text_currency_USD import BlockTextCurrencyUSD
-from blocks.bl_graph import BlockGraph
-from database.db_currency import DataBaseCurrency
+import sys, inspect, os
+from pathlib import Path
 
 
 if __name__ == '__main__':
-    wi = Widget(pos=2)
-    # wi.add_block(BlockTime(wi), True)
-    wi.add_block(BlockTextCurrencyUSD(wi), True)
-    # wi.add_block(BlockGraph(wi), True)
-    wi.add_block(BlockTimeTo(win=wi,
-                             name="ЗП",
-                             finish_message=[],
-                             message=[],
-                             cycle=True,
-                             autonext=True,
-                             d_month=1,
-                             day=13,
-                             hour=12,
-                             minute=0,
-                             second=0
-                            ), True)
-    wi.add_block(BlockTimeTo(win=wi,
+    # PATH = Path.cwd()  #  Путь к проекту
+    #
+    # clsmembers = inspect.getmembers(sys.modules[__name__], inspect.isclass)
+    # # print(clsmembers)
+    # print(os.listdir(Path.cwd()))
+    # print(Path.cwd())
+    # import sys
+    # current_module = sys.modules[__name__]
+    # print(current_module)
+
+    wi = Widget(pos=5)
+    wi.wi_init_wi_block_list([PanelTextCurrencyUSD, PanelText, PanelTimeTo, Panel])
+
+
+    # wi.wi_add_panel(Panel(wi), True)
+    # wi.wi_add_panel(Panel(wi), True)
+    # wi.wi_add_panel(Panel(wi), True)
+    # wi.wi_add_panel(Panel(wi), True)
+
+    wi.wi_add_block(PanelTextCurrencyUSD(wi), True)
+    wi.wi_add_block(PanelText(wi), True)
+    wi.wi_add_block(PanelTimeTo(win=wi,
+                                name="ЗП",
+                                finish_message=[],
+                                message=[],
+                                cycle=True,
+                                autonext=True,
+                                d_month=1,
+                                day=13,
+                                hour=12,
+                                minute=0,
+                                second=0
+                                ), True)
+
+    wi.wi_add_block(PanelTimeTo(win=wi,
                              name="Подъем",
                              finish_message=["ПОДЪЕМ!"],
                              message=[],
@@ -43,18 +59,18 @@ if __name__ == '__main__':
                              minute=30,
                              second=0
                              ), True)
-    wi.add_block(BlockTimeTo(win=wi,
-                             name="Учеба",
-                             finish_message=["Жаль!"],
-                             message=[],
-                             cycle=True,
-                             autonext=True,
-                             day=26,
-                             hour=0,
-                             minute=0,
-                             second=0
-                             ), True)
-    wi.alarm()
+    # wi.add_block(BlockTimeTo(win=wi,
+    #                          name="Учеба",
+    #                          finish_message=["Жаль!"],
+    #                          message=[],
+    #                          cycle=True,
+    #                          autonext=True,
+    #                          day=26,
+    #                          hour=0,
+    #                          minute=0,
+    #                          second=0
+    #                          ), True)
+    wi.wi_alarm()
     wi.mainloop()
 
 """

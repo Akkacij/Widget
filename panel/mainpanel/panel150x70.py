@@ -1,9 +1,9 @@
 from tkinter import PhotoImage
 
-from blocks.mainblocks.block import Block
+from panel.mainpanel.panel import Panel
 
 
-class Block150x70(Block):
+class Panel150x70(Panel):
     """
     Класс стандартного блока, который будет отображаться в виджете
     """
@@ -16,6 +16,6 @@ class Block150x70(Block):
                          height=70,
                          name=name,
                          canvas_bg=canvas_bg)
-        self.version = "Akkacij 1.0 12.01.2022"
+        self.pn_version = "Akkacij 1.0 12.01.2022"
 
-        self.init_status_fields_positions(8)
+        self.pn_init_status_fields_positions(8)

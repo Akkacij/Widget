@@ -5,14 +5,12 @@ from bs4 import BeautifulSoup
 class CurrencyParser(Parser):
     def __init__(self, url, currency_name="None"):
         super().__init__("{}.CurrencyParser".format(currency_name), url)
-        self.version = "Akkacij 1.0 12.01.2022"
-        
-        self.version = "Akkacij 1.0 11.01.2022"
+        self.par_version = "Akkacij 1.0 12.01.2022"
         
         # self.log = "start working!"
         
-    def parsing(self):
-        full_page_soup = BeautifulSoup(self.html_page.content, 'html.parser')
+    def par_parsing(self):
+        full_page_soup = BeautifulSoup(self.par_html_page.content, 'html.parser')
         specific_block = full_page_soup.findAll("div", attrs={"class": "cur-rate__cell"})
         if len(specific_block) < 2:
             return False
@@ -23,11 +21,11 @@ class CurrencyParser(Parser):
         DFR_ = str(first_block_data[1])[5:15].split(".")
         DFR = "{0}-{1}-{2}".format(DFR_[2], DFR_[1], DFR_[0])
         
-        return {"name": self.name,
-                "version": self.version,
+        return {"name": self.par_name,
+                "version": self.par_version,
                 "DFR": DFR,
                 "VFR": str(first_block_data[4])[16:22], }
 
-    def return_log(self):
-        return self.parsing()
+    def par_return_log(self):
+        return self.par_parsing()
     
