@@ -4,16 +4,33 @@ from panel.pn_time_to import PanelTimeTo
 from widget.widget import Widget
 from panel.mainpanel.panel import Panel
 
+import sys, inspect, os
+from pathlib import Path
+
+
 if __name__ == '__main__':
+    # PATH = Path.cwd()  #  Путь к проекту
+    #
+    # clsmembers = inspect.getmembers(sys.modules[__name__], inspect.isclass)
+    # # print(clsmembers)
+    # print(os.listdir(Path.cwd()))
+    # print(Path.cwd())
+    # import sys
+    # current_module = sys.modules[__name__]
+    # print(current_module)
+
     wi = Widget(pos=5)
+    wi.wi_init_wi_block_list([PanelTextCurrencyUSD, PanelText, PanelTimeTo, Panel])
+
+
     # wi.wi_add_panel(Panel(wi), True)
     # wi.wi_add_panel(Panel(wi), True)
     # wi.wi_add_panel(Panel(wi), True)
     # wi.wi_add_panel(Panel(wi), True)
 
-    wi.wi_add_panel(PanelTextCurrencyUSD(wi), True)
-    wi.wi_add_panel(PanelText(wi), True)
-    wi.wi_add_panel(PanelTimeTo(win=wi,
+    wi.wi_add_block(PanelTextCurrencyUSD(wi), True)
+    wi.wi_add_block(PanelText(wi), True)
+    wi.wi_add_block(PanelTimeTo(win=wi,
                                 name="ЗП",
                                 finish_message=[],
                                 message=[],
@@ -26,22 +43,22 @@ if __name__ == '__main__':
                                 second=0
                                 ), True)
 
-    # wi.add_block(BlockTimeTo(win=wi,
-    #                          name="Подъем",
-    #                          finish_message=["ПОДЪЕМ!"],
-    #                          message=[],
-    #                          cycle=True,
-    #                          autonext=True,
-    #                          d_year=0,
-    #                          d_month=0,
-    #                          d_day=1,
-    #                          d_hour=0,
-    #                          d_minute=0,
-    #                          d_second=0,
-    #                          hour=7,
-    #                          minute=30,
-    #                          second=0
-    #                          ), True)
+    wi.wi_add_block(PanelTimeTo(win=wi,
+                             name="Подъем",
+                             finish_message=["ПОДЪЕМ!"],
+                             message=[],
+                             cycle=True,
+                             autonext=True,
+                             d_year=0,
+                             d_month=0,
+                             d_day=1,
+                             d_hour=0,
+                             d_minute=0,
+                             d_second=0,
+                             hour=7,
+                             minute=30,
+                             second=0
+                             ), True)
     # wi.add_block(BlockTimeTo(win=wi,
     #                          name="Учеба",
     #                          finish_message=["Жаль!"],

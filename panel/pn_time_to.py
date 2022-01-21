@@ -97,7 +97,7 @@ class PanelTimeTo(Panel150x70):
             if self.pn_d_month > 12:
                 self.pn_d_year += self.pn_d_month // 12
                 self.pn_d_month = self.pn_d_month - ((self.pn_d_month // 12) * 12)
-            print(self.pn_year, self.pn_d_year)
+            # print(self.pn_year, self.pn_d_year)
             delta = (datetime(self.pn_year + self.pn_d_year,
                               self.pn_month + self.pn_d_month,
                               self.pn_day,
